@@ -1,83 +1,127 @@
- import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 
-// MaterialApp is our root widget!
 void main() => runApp(MaterialApp(
-  // The Scaffold widget is pretty important
-  home: Home(),
-));
+      home: NinjaCard(),
+    ));
 
+class NinjaCard extends StatefulWidget {
+  @override
+  _NinjaCardState createState() => _NinjaCardState();
+}
 
-// Every time we save this build function is going to run which will cause the app to hot reload, smart!
-class Home extends StatelessWidget {
+class _NinjaCardState extends State<NinjaCard> {
+  int ninjaLevel = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-    appBar: AppBar(
-      title: Text("I need a text Widget to display onscreen"),
-      centerTitle: true,
-      backgroundColor: Colors.red[600],
-    ),
-    
-    // Could use a padding widget instead of containr -- paddingWidget does not allow margins
-    body: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      crossAxisAlignment: CrossAxisAlignment.end,
-      children: <Widget>[
-        Text("hello world"),
-        FlatButton(
-          onPressed: () {},
-          color: Colors.amber,
-          child: Text('Text in Button')
+      backgroundColor: Colors.grey[900],
+      appBar: AppBar(
+        title: Text('Ninja ID Card'),
+        centerTitle: true,
+        backgroundColor: Colors.grey[850],
+        elevation: 0.0,
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          // Need to use this whenever we want to change the state
+          // setState triggers the Widget build function to re-run
+          setState(() {
+            ninjaLevel += 1;
+          });
+        },
+        child: Icon(Icons.add),
+        backgroundColor: Colors.grey,
+      ),
+      body: Padding(
+        padding: const EdgeInsets.fromLTRB(30.0, 40.0, 30.0, 0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Center(
+              child: CircleAvatar(
+                radius: 40.0,
+                backgroundImage: AssetImage('assets/thumb.jpg'),
+              ),
+            ),
+            Divider(
+              color: Colors.grey[800],
+              height: 60.0,
+            ),
+            Text(
+              'NAME',
+              style: TextStyle(
+                color: Colors.grey,
+                letterSpacing: 2.0,
+              ),
+            ),
+            SizedBox(height: 10.0),
+            Text(
+              'Chun-Li',
+              style: TextStyle(
+                color: Colors.amberAccent[200],
+                fontWeight: FontWeight.bold,
+                fontSize: 28.0,
+                letterSpacing: 2.0,
+              ),
+            ),
+            SizedBox(height: 30.0),
+            Text(
+              'HOMETOWN',
+              style: TextStyle(
+                color: Colors.grey,
+                letterSpacing: 2.0,
+              ),
+            ),
+            SizedBox(height: 10.0),
+            Text(
+              'Beijing, China',
+              style: TextStyle(
+                color: Colors.amberAccent[200],
+                fontWeight: FontWeight.bold,
+                fontSize: 28.0,
+                letterSpacing: 2.0,
+              ),
+            ),
+            SizedBox(height: 30.0),
+            Text(
+              'CURRENT NINJA LEVEL',
+              style: TextStyle(
+                color: Colors.grey,
+                letterSpacing: 2.0,
+              ),
+            ),
+            SizedBox(height: 10.0),
+            Text(
+              '$ninjaLevel',
+              style: TextStyle(
+                color: Colors.amberAccent[200],
+                fontWeight: FontWeight.bold,
+                fontSize: 28.0,
+                letterSpacing: 2.0,
+              ),
+            ),
+            SizedBox(height: 30.0),
+            Row(
+              children: <Widget>[
+                Icon(
+                  Icons.email,
+                  color: Colors.grey[400],
+                ),
+                SizedBox(width: 10.0),
+                Text(
+                  'chun.li@thenetninja.co.uk',
+                  style: TextStyle(
+                    color: Colors.grey[400],
+                    fontSize: 18.0,
+                    letterSpacing: 1.0,
+                  ),
+                )
+              ],
+            ),
+          ],
         ),
-        Container(
-          color: Colors.cyan,
-          padding: EdgeInsets.all(30.0),
-          child: Text("hello")
-        ),
-      ],
-    ),
-    
-
-
+      ),
     );
-      // floatingActionButton: FloatingActionButton(
-      //   onPressed: () {},
-      //    child: Text('Click'),
-      //    backgroundColor: Colors.red[600],
-      //   ),
   }
-} 
-
-    // Container(
-    //   padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-    //   margin: EdgeInsets.all(10),
-    //   color: Colors.grey[400],
-    //   child: Text('Test')
-    
-    // Center(
-      // child: Image.asset('assets/coffee.png'),
-
-      // child: Icon (
-      //   Icons.airport_shuttle,
-      //   color: Colors.lightBlue,
-      //   size: 50.0
-      // )
-
-// .icon raised button is a bit different from a normal raised button
-// for example it is not allowed to have a child
-      // child: RaisedButton.icon(
-      //   onPressed: () {
-      //     print("You clicked me");
-      //   }, 
-      //   icon: Icon (
-      //     Icons.mail
-      //   ),
-      //   label: Text("Click me"),
-      //   color: Colors.lightBlue,
-      // ),
-    
-    // child: IconButton(
-    //     onPressed: () {},
-    //     icon: Icon(Icons.alternate_email),
-    //     color: Colors.red[600],
-    //   ),
+}
