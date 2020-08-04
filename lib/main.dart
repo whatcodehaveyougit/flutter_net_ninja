@@ -17,8 +17,12 @@ class Home extends StatelessWidget {
         ),
         body: Center(
        // It seems like you are only allowed one child inside one widget
-          child:
-          Image.asset('assets/images/space.png'), 
+          child: FlatButton(onPressed: () {
+            print('you clicke me');
+          },
+          child: Text('click me'),
+          color: Colors.blue
+          )
         ),
         
         floatingActionButton: FloatingActionButton(
