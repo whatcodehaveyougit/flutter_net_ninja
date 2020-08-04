@@ -16,16 +16,13 @@ class Home extends StatelessWidget {
           backgroundColor: Colors.red[600],
         ),
         body: Center(
-          child: Text(
-            'Hello Ninjas!',
-            style: TextStyle(
-              fontSize: 20.0,
-              fontWeight: FontWeight.bold,
-              letterSpacing: 2.0,
-              color: Colors.grey[600]
-              )
-          )
+       // It seems like you are only allowed one child inside one widget
+          child:
+          Image(
+            image: NetworkImage("https://images.unsplash.com/photo-1595077936871-bcaa5ac77b46?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80")
+            ), 
         ),
+        
         floatingActionButton: FloatingActionButton(
           onPressed: () {},
           child: Text("Click"),
