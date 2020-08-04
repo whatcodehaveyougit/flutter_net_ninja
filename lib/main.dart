@@ -17,12 +17,15 @@ class Home extends StatelessWidget {
         ),
         body: Center(
        // It seems like you are only allowed one child inside one widget
-          child: FlatButton(onPressed: () {
-            print('you clicke me');
-          },
-          child: Text('click me'),
-          color: Colors.blue
-          )
+         
+         child: RaisedButton.icon(
+            onPressed: () {},
+            icon: Icon(
+              Icons.mail
+            ),
+            label: Text("Mail me"),
+            color: Colors.amber
+          ),
         ),
         
         floatingActionButton: FloatingActionButton(
