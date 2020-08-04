@@ -18,9 +18,7 @@ class Home extends StatelessWidget {
         body: Center(
        // It seems like you are only allowed one child inside one widget
           child:
-          Image(
-            image: NetworkImage("https://images.unsplash.com/photo-1595077936871-bcaa5ac77b46?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80")
-            ), 
+          Image.asset('assets/images/space.png'), 
         ),
         
         floatingActionButton: FloatingActionButton(
