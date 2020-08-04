@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
 
 void main() => runApp(MaterialApp(
-      home: Scaffold(
+      home: Home(),
+    ));
+
+
+// This Home Widget is re-useable as we can just put it anywhere now that it is self contained
+class Home extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
         appBar: AppBar(
           title: Text("My first app"),
           centerTitle: true,
@@ -9,7 +17,7 @@ void main() => runApp(MaterialApp(
         ),
         body: Center(
           child: Text(
-            'hello ninjas!',
+            'Hello Ninjas!',
             style: TextStyle(
               fontSize: 20.0,
               fontWeight: FontWeight.bold,
@@ -23,5 +31,6 @@ void main() => runApp(MaterialApp(
           child: Text("Click"),
           backgroundColor: Colors.red[600]
           ,),
-      ),
-    ));
+      );
+  }
+}
